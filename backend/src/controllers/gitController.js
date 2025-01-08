@@ -2,13 +2,13 @@ import fs from 'fs'
 import path from 'path'
 
 export const initRepo = (req, res) => {
-    const gitDir = path.join(process.cwd(), 'src', '.git')
+    const gitDir = path.join(process.cwd(), 'test', '.git')
 
     if (fs.existsSync(gitDir)) {
         return res.status(400).json({ message: '.git folder already exists in src' })
     }
 
-    // Create .git directory structure inside src
+    // Create .git directory structure 
     fs.mkdirSync(gitDir)
     fs.mkdirSync(path.join(gitDir, 'objects'))
     fs.mkdirSync(path.join(gitDir, 'refs'))
