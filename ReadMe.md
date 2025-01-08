@@ -6,21 +6,22 @@ This is a **Work In Progress (WIP)** Personal Git-Clone project.The project is a
 
 ## **Features**
 - **Clean code for client to use.**
-- **Initialize git folder**
-- **Built using Node.js and fs module**
+- **Create your project and also initialize git folder.**
+- **Built using Node.js and fs module.**
 
 ## **Prerequisites**
 
 - **Node.js (v16.6.0 or later)**
 
-## **How to Start the Server**
+## **Command**
 
-1. Clone the repository:
    ```bash
-   git clone https://github.com/Lussskki/Git-clone
-   cd backed
-   pnpm i
-   pnpm dev
+   $ pnpm run lussskki-git init ./newRepoWithGitFolderTest
+
+   > backend@1.0.0 lussskki-git C:\Users\user\Desktop\Git-clone\backend
+   >  node src/cli.js "init" "./newRepoWithGitFolderTest"
+
+   Repository initialized successfully! 
    ```
 
 Contributions are welcome!If you like my project fork the repository, make changes, and create a pull request.
