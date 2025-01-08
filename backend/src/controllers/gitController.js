@@ -1,18 +1,14 @@
 import fs from 'fs'
 import path from 'path'
 
-export const initRepo = (req, res) => {
-    const gitDir = path.join(process.cwd(), 'test', '.git')
+export const initRepo = (directoryPath) => {
+    const gitDir = path.join(directoryPath, '.git')
 
-    if (fs.existsSync(gitDir)) {
-        return res.status(400).json({ message: '.git folder already exists in test' })
-    }
+    if (!fs.existsSync(directoryPath)) fs.mkdirSync(directoryPath, { recursive: true })
+    if (fs.existsSync(gitDir)) throw new Error('.git folder already exists')
 
-    // Create .git directory structure 
     fs.mkdirSync(gitDir)
     fs.mkdirSync(path.join(gitDir, 'objects'))
     fs.mkdirSync(path.join(gitDir, 'refs'))
     fs.writeFileSync(path.join(gitDir, 'HEAD'), 'ref: refs/heads/master\n')
-
-    res.status(200).json({ message: 'Initialized an empty Git-clone repository in test/.git' })
 }
